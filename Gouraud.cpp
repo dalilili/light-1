@@ -1,3 +1,4 @@
+
 #include <GL/glut.h>
 
 #define WIDTH 640
@@ -9,29 +10,29 @@ void myDisplay(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	// ´´½¨Í¸ÊÓĞ§¹ûÊÓÍ¼
-	glMatrixMode(GL_PROJECTION);//¾ÍÊÇÒª¶ÔÍ¶Ó°Ïà¹Ø½øĞĞ²Ù×÷£¬Ò²¾ÍÊÇ°ÑÎïÌåÍ¶Ó°µ½Ò»¸öÆ½ÃæÉÏ£¬¾ÍÏñÎÒÃÇÕÕÏàÒ»Ñù£¬°Ñ3Î¬ÎïÌåÍ¶µ½2Î¬µÄÆ½ÃæÉÏ¡£ÕâÑù£¬½ÓÏÂÀ´µÄÓï¾ä¿ÉÒÔÊÇ¸úÍ¸ÊÓÏà¹ØµÄº¯Êı£¬±ÈÈçglFrustum()»ògluPerspective()£»
-	glLoadIdentity();//ÖØÖÃµ±Ç°Ö¸¶¨µÄ¾ØÕóÎªµ¥Î»¾ØÕó¡£
-	gluPerspective(90.0f, 1.0f, 1.0f, 20.0f); // oid gluPerspective(GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar)near ºÍ far ¾ö¶¨ÁËÍ¶Ó°²Î¿¼µãÓë²Ã¼ô´°¿ÚµÄ¾àÀë£¬fovy¾ö¶¨ÁË²Ã¼ô´°¿ÚµÄ¸ß¶È£¬»¹ÓĞ¸ö²ÎÊı aspect È·¶¨ÁË²Ã¼ô´°¿ÚµÄ³¤¿í±ÈÀı¡£
+	// åˆ›å»ºé€è§†æ•ˆæœè§†å›¾
+	glMatrixMode(GL_PROJECTION);//å°±æ˜¯è¦å¯¹æŠ•å½±ç›¸å…³è¿›è¡Œæ“ä½œï¼Œä¹Ÿå°±æ˜¯æŠŠç‰©ä½“æŠ•å½±åˆ°ä¸€ä¸ªå¹³é¢ä¸Šï¼Œå°±åƒæˆ‘ä»¬ç…§ç›¸ä¸€æ ·ï¼ŒæŠŠ3ç»´ç‰©ä½“æŠ•åˆ°2ç»´çš„å¹³é¢ä¸Šã€‚è¿™æ ·ï¼Œæ¥ä¸‹æ¥çš„è¯­å¥å¯ä»¥æ˜¯è·Ÿé€è§†ç›¸å…³çš„å‡½æ•°ï¼Œæ¯”å¦‚glFrustum()æˆ–gluPerspective()ï¼›
+	glLoadIdentity();//é‡ç½®å½“å‰æŒ‡å®šçš„çŸ©é˜µä¸ºå•ä½çŸ©é˜µã€‚
+	gluPerspective(90.0f, 1.0f, 1.0f, 20.0f); // oid gluPerspective(GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar)near å’Œ far å†³å®šäº†æŠ•å½±å‚è€ƒç‚¹ä¸è£å‰ªçª—å£çš„è·ç¦»ï¼Œfovyå†³å®šäº†è£å‰ªçª—å£çš„é«˜åº¦ï¼Œè¿˜æœ‰ä¸ªå‚æ•° aspect ç¡®å®šäº†è£å‰ªçª—å£çš„é•¿å®½æ¯”ä¾‹ã€‚
 
-		glMatrixMode(GL_MODELVIEW);//Õâ¸öÊÇ¶ÔÄ£ĞÍÊÓ¾°µÄ²Ù×÷£¬½ÓÏÂÀ´µÄÓï¾äÃè»æÒ»¸öÒÔÄ£ĞÍÎª»ù´¡µÄÊÊÓ¦£¬ÕâÑùÀ´ÉèÖÃ²ÎÊı£¬½ÓÏÂÀ´ÓÃµ½µÄ¾ÍÊÇÏñgluLookAt()ÕâÑùµÄº¯Êı£»
+		glMatrixMode(GL_MODELVIEW);//è¿™ä¸ªæ˜¯å¯¹æ¨¡å‹è§†æ™¯çš„æ“ä½œï¼Œæ¥ä¸‹æ¥çš„è¯­å¥æç»˜ä¸€ä¸ªä»¥æ¨¡å‹ä¸ºåŸºç¡€çš„é€‚åº”ï¼Œè¿™æ ·æ¥è®¾ç½®å‚æ•°ï¼Œæ¥ä¸‹æ¥ç”¨åˆ°çš„å°±æ˜¯åƒgluLookAt()è¿™æ ·çš„å‡½æ•°ï¼›
 	glLoadIdentity();
 	gluLookAt(0.0, 5.0, -10.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 
 	
 	{
 		GLfloat sun_light_position[] = { 1.0f, 1.0f, 0.0f, 0.0f };
-		GLfloat sun_light_ambient[] = { 0.0f, 0.0f, 0.0f, 1.0f }; //RGBAÄ£Ê½µÄ»·¾³¹â£¬Îª0  
-		GLfloat sun_light_diffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f }; //RGBAÄ£Ê½µÄÂş·´Éä¹â£¬È«°×¹â  
+		GLfloat sun_light_ambient[] = { 0.0f, 0.0f, 0.0f, 1.0f }; //RGBAæ¨¡å¼çš„ç¯å¢ƒå…‰ï¼Œä¸º0  
+		GLfloat sun_light_diffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f }; //RGBAæ¨¡å¼çš„æ¼«åå°„å…‰ï¼Œå…¨ç™½å…‰  
 		GLfloat sun_light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 
-		glLightfv(GL_LIGHT0, GL_POSITION, sun_light_position);//Ê¹ÓÃGL_LIGHT0±íÊ¾µÚ0ºÅ¹âÔ´£¬GL_LIGHT1±íÊ¾µÚ1ºÅ¹âÔ´£¬ÒÀ´ÎÀàÍÆ£¬OpenGLÖÁÉÙ»áÖ§³Ö8¸ö¹âÔ´£¬¼´GL_LIGHT0µ½GL_LIGHT7¡£Ê¹ÓÃglEnableº¯Êı¿ÉÒÔ¿ªÆôËüÃÇ¡£
+		glLightfv(GL_LIGHT0, GL_POSITION, sun_light_position);//ä½¿ç”¨GL_LIGHT0è¡¨ç¤ºç¬¬0å·å…‰æºï¼ŒGL_LIGHT1è¡¨ç¤ºç¬¬1å·å…‰æºï¼Œä¾æ¬¡ç±»æ¨ï¼ŒOpenGLè‡³å°‘ä¼šæ”¯æŒ8ä¸ªå…‰æºï¼Œå³GL_LIGHT0åˆ°GL_LIGHT7ã€‚ä½¿ç”¨glEnableå‡½æ•°å¯ä»¥å¼€å¯å®ƒä»¬ã€‚
 		glLightfv(GL_LIGHT0, GL_AMBIENT, sun_light_ambient);
 		glLightfv(GL_LIGHT0, GL_DIFFUSE, sun_light_diffuse);
 		glLightfv(GL_LIGHT0, GL_SPECULAR, sun_light_specular);
 
-		glEnable(GL_LIGHT0);//¿ªÆôµÚ0ºÅ¹âÔ´,Ê¹ÓÃglDisableº¯ÊıÔò¿ÉÒÔ¹Ø±Õ¹âÔ´
-		glEnable(GL_LIGHTING);//Òª´ò¿ª¹âÕÕ´¦Àí¹¦ÄÜ£¬Ê¹ÓÃÕâÌõµÄÓï¾ä
+		glEnable(GL_LIGHT0);//å¼€å¯ç¬¬0å·å…‰æº,ä½¿ç”¨glDisableå‡½æ•°åˆ™å¯ä»¥å…³é—­å…‰æº
+		glEnable(GL_LIGHTING);//è¦æ‰“å¼€å…‰ç…§å¤„ç†åŠŸèƒ½ï¼Œä½¿ç”¨è¿™æ¡çš„è¯­å¥
 		glEnable(GL_DEPTH_TEST);
 	}
 
@@ -45,13 +46,13 @@ void myDisplay(void)
 		glMaterialfv(GL_FRONT, GL_AMBIENT, sun_mat_ambient);
 		glMaterialfv(GL_FRONT, GL_DIFFUSE, sun_mat_diffuse);
 		glMaterialfv(GL_FRONT, GL_SPECULAR, sun_mat_specular);
-		glMaterialfv(GL_FRONT, GL_EMISSION, sun_mat_emission);//GL_EMISSIONÊôĞÔ¡£¸ÃÊôĞÔÓÉËÄ¸öÖµ×é³É£¬±íÊ¾Ò»ÖÖÑÕÉ«¡£OpenGLÈÏÎª¸Ã²ÄÖÊ±¾Éí¾ÍÎ¢Î¢µÄÏòÍâ·¢Éä¹âÏß£¬ÒÔÖÁÓÚÑÛ¾¦¸Ğ¾õµ½ËüÓĞÕâÑùµÄÑÕÉ«£¬µ«Õâ¹âÏßÓÖ±È½ÏÎ¢Èõ£¬ÒÔÖÁÓÚ²»»áÓ°Ïìµ½ÆäËüÎïÌåµÄÑÕÉ«¡£
+		glMaterialfv(GL_FRONT, GL_EMISSION, sun_mat_emission);//GL_EMISSIONå±æ€§ã€‚è¯¥å±æ€§ç”±å››ä¸ªå€¼ç»„æˆï¼Œè¡¨ç¤ºä¸€ç§é¢œè‰²ã€‚OpenGLè®¤ä¸ºè¯¥æè´¨æœ¬èº«å°±å¾®å¾®çš„å‘å¤–å‘å°„å…‰çº¿ï¼Œä»¥è‡³äºçœ¼ç›æ„Ÿè§‰åˆ°å®ƒæœ‰è¿™æ ·çš„é¢œè‰²ï¼Œä½†è¿™å…‰çº¿åˆæ¯”è¾ƒå¾®å¼±ï¼Œä»¥è‡³äºä¸ä¼šå½±å“åˆ°å…¶å®ƒç‰©ä½“çš„é¢œè‰²ã€‚
 		glMaterialf(GL_FRONT, GL_SHININESS, sun_mat_shininess);
 
 		
 	}
 
-	// ¶¨ÒåµØÇòµÄ²ÄÖÊ²¢»æÖÆµØÇò
+	// å®šä¹‰åœ°çƒçš„æè´¨å¹¶ç»˜åˆ¶åœ°çƒ
 	{
 		GLfloat earth_mat_ambient[] = { 0.0f, 0.0f, 0.5f, 1.0f };
 		GLfloat earth_mat_diffuse[] = { 0.0f, 0.0f, 0.5f, 1.0f };
@@ -79,7 +80,7 @@ int main(int argc, char* argv[])
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(WIDTH, HEIGHT);
-	glutCreateWindow("gouraud¹âÕÕÄ£ĞÍ");
+	glutCreateWindow("gouraudå…‰ç…§æ¨¡å‹");
 	glutDisplayFunc(&myDisplay);
 	glutMainLoop();
 	return 0;
